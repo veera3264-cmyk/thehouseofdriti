@@ -8,4 +8,8 @@ import { MatIconModule } from '@angular/material/icon';
   templateUrl: './navbar.html',
   styleUrl: './navbar.css'
 })
-export class Navbar {}
+export class Navbar {
+  get logo () {
+    return 'assets/logo.jpg'
+  }
+}

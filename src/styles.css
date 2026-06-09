@@ -10,12 +10,10 @@ body::before {
     content: "";
     position: fixed;
     inset: 0;
-
-    background-image: url('/assets/brand.png');
+    background-image: url('/assets/background.jpg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 50%;
-
-    opacity: 0.12;
+    background-size: cover;
+    opacity: 0.4;
     z-index: -1;
 }
