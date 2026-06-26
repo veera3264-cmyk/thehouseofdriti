@@ -18,13 +18,14 @@
 /* Navbar */
 .navbar {
     /* background-color: white; */
+    position: f;
     height: 100%;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     /* background-color: rgb(250, 248, 238); */
-
+    margin-bottom: auto;
     border-radius: 10px;
 }
 
@@ -260,38 +261,57 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-    .header{
+    .header {
         height: 80px;
-        margin: 0;
         width: 100%;
+        margin: 0;
     }
-    .navbar{
+
+    .navbar {
         height: 100%;
-        
-        padding: 0;
-    }
-    .left-menu{
+        padding: 0 16px;
         display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
-    .navbar-toggler{
+
+    /* keep left menu visible on tablet */
+    .left-menu,
+    .nav-menu {
+        display: flex;
+        align-items: center;
+    }
+
+    /* no toggler on tablet yet */
+    .navbar-toggler {
         display: none;
     }
-    .right-menu{
+
+    /* keep right-side icons visible */
+    .right-menu {
         display: flex;
-        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
         width: auto;
     }
-    .navbar-nav{
-        display: none;
+
+    .navbar-nav {
+        display: flex;
         flex-direction: row;
+        justify-content: end;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        gap: 10px;
     }
 
-
-    .brandlogo{
-        margin: 0%;
+    /* keep logo centered nicely */
+    .brandlogo {
+        flex: 2;
+        margin: 0;
         display: flex;
         justify-content: end;
-        
+        align-items: center;
     }
 }
 
@@ -310,7 +330,7 @@
         padding: 0;
     }
     .left-menu{
-        display: none;
+        display: flex;
     }
     .navbar-toggler{
         display: flex;
@@ -322,7 +342,7 @@
     .brandlogo{
         margin: 2.5%;
         display: flex;
-        justify-content: start;
+        justify-content: center;
     }
     #navbarnav{
         width: 100%;

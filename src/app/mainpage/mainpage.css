@@ -1,58 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap');
 
-
-/* .main-page::before {
-    content: "";
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('/assets/background.jpg') center/cover no-repeat;
-    background-repeat: cover;
-    opacity: 0.3;
-
-    /* z-index: -1;
-    animation: scale-up-center-normal 20s cubic-bezier(0.190, 1.000, 0.220, 1.000) 0s 1 normal ; */
-/* } / */
-
-/* @keyframes scale-up-center-normal {
-    from {
-        transform: scale(1.5);
-    }
-
-    to {
-        transform: scale(0.8);
-    }
-} */
-
+/* =========================
+   MAIN PAGE BACKGROUND
+========================= */
 .main-page {
     position: relative;
     min-height: 100vh;
     width: 100%;
-    
+    z-index: 0;
 }
 
-/* Single, unified pseudo-element for the background layer */
+/* Background layer */
 .main-page::before {
     content: "";
-    position: fixed; /* Fixes it to the viewport so it covers everything */
-    inset: 0;        /* Shorthand for top:0, left:0, right:0, bottom:0 */
-    
-    /* Base color fallback + your background image */
+    position: fixed;
+    inset: 0;
     background: rgb(252, 241, 228) url('/assets/background.png') center/cover no-repeat;
-    
-    opacity: 0.7;    /* Keeps the image subtle */
-    z-index: -1;     /* Pushes it behind all Angular components */
-    
-    /* Re-enabled and smoothed out your animation */
+    opacity: 0.7;
+    z-index: -1;
     animation: scale-up-center-normal 6s cubic-bezier(0.190, 1.000, 0.220, 1.000) infinite alternate;
 }
 
 @keyframes scale-up-center-normal {
     from {
-        transform: scale(2); /* 1.5 was too zoomed in, 1.1 provides a subtle drift */
+        transform: scale(1.15);
     }
     to {
         transform: scale(1);
+    }
+}
+
+/* =========================
+   LOADER OVERLAY
+========================= */
+.loader-overlay {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at top, #3a3128 0%, #242424 45%, #161616 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    overflow: hidden;
+}
+
+.loader-overlay::before {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+            rgba(212, 165, 42, 0.22) 0%,
+            rgba(212, 165, 42, 0.08) 40%,
+            transparent 72%);
+    filter: blur(10px);
+    animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+/* =========================
+   BRAND LOADER
+========================= */
+.brand-loader {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    min-width: 280px;
+    padding: 24px;
+    animation: brandFadeIn 0.9s ease forwards;
+}
+
+.brand-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.brand-top .line {
+    width: 22px;
+    height: 1px;
+    background: linear-gradient(to right, #8f6a10, #f4d06f, #8f6a10);
+}
+
+.brand-top .diamond {
+    color: #d4af37;
+    font-size: 10px;
+}
+
+.top-text {
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    color: #ead79d;
+    font-family: "Times New Roman", serif;
+}
+
+.brand-main {
+    font-size: clamp(2.8rem, 8vw, 5rem);
+    font-weight: 500;
+    letter-spacing: 12px;
+    line-height: 1;
+    font-family: "Times New Roman", serif;
+    background: linear-gradient(180deg, #f7df8a 0%, #d4a52a 45%, #9c6700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow:
+        0 0 8px rgba(212, 175, 55, 0.18),
+        0 0 20px rgba(212, 175, 55, 0.10);
+    animation: glowText 2s ease-in-out infinite alternate;
+}
+
+.brand-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 12px auto 8px;
+    width: min(360px, 80vw);
+}
+
+.divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(212, 165, 42, 0.25) 18%,
+        #d4a52a 50%,
+        rgba(212, 165, 42, 0.25) 82%,
+        transparent 100%
+    );
+}
+
+.flower {
+    color: #d4af37;
+    font-size: 11px;
+    line-height: 1;
+}
+
+.brand-bottom {
+    margin-top: 6px;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    color: #d9bf6f;
+    font-family: "Times New Roman", serif;
+}
+
+.loader-ring {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid rgba(212, 175, 55, 0.18);
+    border-top-color: #d4af37;
+    margin: 22px auto 0;
+    animation: spin 1s linear infinite;
+}
+
+/* =========================
+   LOADER ANIMATIONS
+========================= */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes brandFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes pulseGlow {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.06);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.95);
+        opacity: 0.7;
+    }
+}
+
+@keyframes glowText {
+    from {
+        text-shadow:
+            0 0 8px rgba(212, 175, 55, 0.12),
+            0 0 18px rgba(212, 175, 55, 0.08);
+    }
+    to {
+        text-shadow:
+            0 0 10px rgba(212, 175, 55, 0.24),
+            0 0 26px rgba(212, 175, 55, 0.14);
+    }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    .brand-main {
+        letter-spacing: 7px;
+    }
+
+    .top-text {
+        font-size: 0.68rem;
+        letter-spacing: 2.5px;
+    }
+
+    .brand-bottom {
+        font-size: 0.65rem;
+        letter-spacing: 2px;
+    }
+
+    .brand-top .line {
+        width: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .brand-loader {
+        padding: 16px;
+    }
+
+    .brand-main {
+        letter-spacing: 5px;
+    }
+
+    .top-text {
+        font-size: 0.6rem;
+        letter-spacing: 2px;
+    }
+
+    .brand-bottom {
+        font-size: 0.58rem;
+        letter-spacing: 1.5px;
+    }
+
+    .loader-ring {
+        width: 38px;
+        height: 38px;
     }
 }

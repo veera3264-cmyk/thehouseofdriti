@@ -13,7 +13,7 @@ export const routes: Routes = [
     {
         path: 'mainpage',
         component: Mainpage,
-    children: [
+        children: [
             {
                 path: 'collections',
                 component: Collections

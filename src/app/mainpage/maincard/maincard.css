@@ -1,137 +1,182 @@
- @import url('https://fonts.googleapis.com/css2?family=Lavishly+Yours&family=Playwrite+GB+J+Guides:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lavishly+Yours&family=Cormorant+Garamond:wght@400;500;600&display=swap');
 
- /* body {
-     margin: 0;
- } */
-
- *{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-   
-    background-color: #242424;
-    overflow-x: hidden;
+/* HERO SECTION */
+.hero-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 4%;
+    width: 100%;
+    height: 80vh;
+    padding-top: 80px;
+    background-image: url('/assets/back.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+    position: relative;
 }
 
-.container-fluid {
-    padding-top: 60px;
+
+/* SOFT OVERLAY */
+.overlay {
+    width: 100%;
+    min-height: calc(100vh - 80px);
+    background: rgba(255, 248, 240, 0.10);
+    display: flex;
+    align-items: center;
+    justify-content: center;   /* move content to left */
+    padding: 0 6%;
 }
 
- 
- .home-section {
-     min-height: calc(100vh - 80px);
-     width: 100%;
-     display: flex;
-     flex: 2;
-     align-items: center;
-     gap: 60px;
-     box-sizing: content-box;
-     padding: 60px 5%;
-     /* border-bottom: 1px solid rgb(216, 112, 112); */
-     margin: 0;
- }
-
-
- .content {
+/* HERO CONTENT */
+.hero-content {
+    max-width: 100%;
+    width: 100%;
+    text-align: left;              /* left align all text */
     display: flex;
     flex-direction: column;
-     height: 100%;
-     flex: 1;
-     width: 350px;
-     animation: headingZoom 1s ease-in-out forwards;
- }
+    align-items: center;       /* keep children aligned left */
+    justify-content: center;
+}
 
- @keyframes headingZoom {
-     from {
-         transform: scale(1.1);
-     }
+/* MAIN SCRIPT TEXT */
+.welcome-text {
+    font-family: "Lavishly Yours", cursive;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    font-weight: 590;
+    color: #5e4406;
+    line-height: 1.1;
+    margin-left: 0%;
+    text-shadow: 0 1px 4px rgba(255, 248, 230, 0.35);
+}
 
-     to {
-         transform: scale(1);
-     }
- }
-
- .home-heading {
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     font-size: 36px;
-     font-weight: 300;
-     color: #070300;
-     line-height: 1.2;
-     margin-bottom: 25px;
-     font-family: "lavishly yours", cursive;
-     animation: headingZoom 1s ease-in-out forwards;
- }
-
- .heading {
-    font-family: "lavishly yours", cursive;
-    font-size: 4rem;
-     display: flex;
-     justify-self: center;
-    margin-left: 10%;
-     
- }
-
-
-
- @keyframes headingZoom {
-     from {
-         transform: scale(1.1);
-     }
-
-     to {
-         transform: scale(1);
-     }
- }
-
- .home-description {
-     font-size: 2rem;
-     line-height: 1.9;
-     color: #000000;
-     margin-bottom: 35px;
-     text-align: justify;
-     font-family: "lavishly yours", cursive;
- }
-
- .explore-btn {
-     padding: 14px 35px;
-     border: none;
-     border-radius: 30px;
-     background: #c9a86a;
-     color: white;
-     font-size: 1rem;
-     cursor: pointer;
-     transition: all 0.3s ease;
- }
-
- .explore-btn:hover {
-     transform: translateY(-3px);
-     box-shadow: 0 10px 20px rgba(201, 168, 106, 0.3);
- }
-
- .holographic-container {
-    height: 100%;
-    width: 100%;
-    flex: 0.4;
+/* ORNAMENT LINE */
+.ornament-line {
     display: flex;
-    justify-content: space-between;
-    
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    width: 100%;
+    width: min(900px, 70%);
+    margin: 8px 10% 24px 0;
 }
 
-.holographic-card  img{
-    margin-left:8%;
-    height: 600px;
-    width: 600px;
-    border-radius: 200px;
-    box-shadow: 0 50px 50px rgba(252, 217, 19, 0.15);
-    object-fit: cover;
-    animation: slowZoom 1s ease-in-out backwards;
-    position: relative;
+/* LEFT AND RIGHT LINES */
+.ornament-line .line {
+    flex: 1;
     
-    
+    height: 1px;
+    background: linear-gradient(
+        to right,
+        rgba(139, 107, 31, 0.2),
+        rgba(139, 107, 31, 0.95),
+        rgba(139, 107, 31, 0.2)
+    );
 }
 
+/* FLOWER */
+.ornament-line .flower {
+    font-size: 1.1rem;
+    color: #8B6B1F;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* TAGLINE */
+.tagline {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(2.0rem, 1vw, 1rem);
+    font-weight: 800;
+    color: #493112;
+    line-height: 1.5;
+    margin-right: 10%;
+    max-width: 100%;
+    align-items: center;
+}
+
+/* TABLET */
+@media (max-width: 1024px) {
+    .overlay {
+        padding: 0 5%;
+    }
+    .hero-section{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: calc(100vh - 80px);
+        margin-top: 7.5%;
+    }
+    .hero-content {
+        display: flex;
+        max-width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .welcome-text {
+        font-size: clamp(3.5rem, 4vw, 4.5rem);
+        
+    }
+    .ornament-line {
+        max-width: 900px;
+        margin: 8px 0 18px;
+    }
+
+    .tagline {
+        font-size: 1.5rem;
+        margin: 0;
+        
+    }
+}
+
+/* MOBILE */
+@media (max-width: 767px) {
+    .hero-section{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10%;
+        min-height: calc(100vh - 80px);
+    }
+
+    .overlay {
+        min-height: 70vh;
+        margin-top: 10%;
+    }
+
+    .overlay {
+        padding: 0 20px;
+        align-items: center;
+    }
+
+    .hero-content {
+        display: flex;
+        align-items: center;
+        justify-content: st;
+        width: 100%;
+    }
+
+    .welcome-text {
+        font-size: 2.5rem;
+        margin: 0;
+    }
+
+    .ornament-line {
+        max-width: 800px;
+        margin: 8px 0 18px 0;
+    }
+
+    .tagline {
+        font-size: 1.5rem;
+        max-width: 100%;
+        margin-left: 10%;
+    }
+}

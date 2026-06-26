@@ -1,6 +1,33 @@
-<div class="main-page">
-    <app-navbar />
-    <app-maincard />
-    <app-collections />
+@if (isLoading) {
+  <div class="loader-overlay">
+    <div class="brand-loader">
+      <div class="brand-top">
+        <span class="line"></span>
+        <span class="diamond">♦</span>
+        <span class="top-text">THE HOUSE OF</span>
+        <span class="diamond">♦</span>
+        <span class="line"></span>
+      </div>
 
-</div>
+      <div class="brand-main">DRITHI</div>
+
+      <div class="brand-divider">
+        <span class="divider-line"></span>
+        <span class="flower">✤</span>
+        <span class="divider-line"></span>
+      </div>
+
+      <div class="brand-bottom">LUXURY | DESIGN | HERITAGE</div>
+      <div class="loader-ring"></div>
+    </div>
+  </div>
+} @else {
+  <div class="main-page">
+    <app-navbar></app-navbar>
+
+    <div class="main-content">
+      <app-maincard></app-maincard>
+      <app-collections></app-collections>
+    </div>
+  </div>
+}

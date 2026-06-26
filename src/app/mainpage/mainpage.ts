@@ -1,20 +1,29 @@
-import { Component } from '@angular/core';
-import { Navbar } from "./navbar/navbar";
+import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
+import { Navbar } from './navbar/navbar';
 import { Maincard } from './maincard/maincard';
 import { Collections } from './collections/collections';
 
-
-
-
-
 @Component({
   selector: 'app-mainpage',
-  standalone:true,
-  imports: [Navbar, Maincard, Collections, ],
+  standalone: true,
+  imports: [Navbar, Maincard, Collections,],
   templateUrl: './mainpage.html',
-  styleUrl: './mainpage.css',
+  styleUrls: ['./mainpage.css']   // <-- use styleUrls here
 })
-export class Mainpage {
-  
 
+export class Mainpage implements OnInit {
+  isLoading: boolean = true;
+
+  // 2. Inject it into your constructor
+  constructor(private cdr: ChangeDetectorRef) {}
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.isLoading = false;
+      console.log('Loading finished! isLoading is now:', this.isLoading);
+      
+      // 3. Force Angular to scan the HTML template for changes right now
+      this.cdr.detectChanges(); 
+    }, 2000); 
+  }
 }
