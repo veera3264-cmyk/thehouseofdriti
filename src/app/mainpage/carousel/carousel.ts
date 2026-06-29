@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 
 
+
+
 @Component({
   standalone: true,
   selector: 'app-carousel',
@@ -11,5 +13,4 @@ import { CommonModule } from '@angular/common';
   styleUrl: './carousel.css'
 })
 export class CarouselComponent {
- 
 }
